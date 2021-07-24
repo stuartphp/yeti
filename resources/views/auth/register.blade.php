@@ -1,5 +1,43 @@
 <x-guest-layout>
-    <x-jet-authentication-card>
+    <div class="container flex items-center justify-center mt-5 py-10">
+        <div class="w-full md:w-1/2 xl:w-1/3">
+            <div class="mx-5 md:mx-10">
+                <h2 class="uppercase">Create Your Account</h2>
+                <h4 class="uppercase">Let's Roll</h4>
+            </div>
+            <form method="POST" class="card mt-5 p-5 md:p-10" action="{{ route('register') }}">
+                @csrf
+                <div class="mb-5">
+                    <label class="label block mb-2" for="name">Name</label>
+                    <input id="name" type="text" class="form-control" placeholder="John Doe" name="name" value="{{ old('name') }}" required autofocus autocomplete="name" >
+                </div>
+                <div class="mb-5">
+                    <label class="label block mb-2" for="email">Email</label>
+                    <input id="email" type="text" class="form-control" placeholder="example@example.com" type="email" name="email" value="{{ old('email')}}" required>
+                </div>
+                <div class="mb-5">
+                    <label class="label block mb-2" for="password">Password</label>
+                    <label class="form-control-addon-within">
+                        <input id="password" type="password" class="form-control border-none" value="12345" name="password" required autocomplete="new-password" >
+                        <span class="flex items-center pr-4">
+                            <button type="button" class="btn btn-link la la-eye text-gray-600 text-xl leading-none"
+                                data-toggle="password-visibility"></button>
+                        </span>
+                    </label>
+                </div>
+                <div class="mb-5">
+                    <label class="label block mb-2" for="password">Confirm Password</label>
+                    <label class="form-control-addon-within">
+                        <input id="password" type="password" class="form-control border-none" name="password_confirmation" required autocomplete="new-password">
+                    </label>
+                </div>
+                <div class="flex">
+                    <button type="submit" class="btn btn_primary ml-auto uppercase">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{-- <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
         </x-slot>
@@ -56,5 +94,5 @@
                 </x-jet-button>
             </div>
         </form>
-    </x-jet-authentication-card>
+    </x-jet-authentication-card> --}}
 </x-guest-layout>

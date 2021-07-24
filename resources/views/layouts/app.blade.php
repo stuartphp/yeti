@@ -6,17 +6,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}?{{ time()}}">-->
-
         @livewireStyles
         <link rel="stylesheet" href="/assets/css/style.css"/>
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body>
         <!-- Top Bar -->
@@ -682,13 +673,12 @@
 
 </main>
         @stack('modals')
-
-        @livewireScripts
         <!-- Scripts -->
     <script src="/assets/js/vendor.js"></script>
     <script src="/assets/js/chart.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1"></script> -->
     <script src="/assets/js/script.js"></script>
+    @livewireScripts
         <script>
             const btn = document.querySelector(".mobile-menu-button");
             const sidebar = document.querySelector('.sidebar');
